@@ -11,7 +11,8 @@ class App
         let canvas = document.getElementById("canvasId")
         let g = canvas.getContext("2d");
         g.lineWidth = 15
-
+        
+        // house structure
         g.beginPath()
         g.fillStyle = "brown"
         g.moveTo(x + 75, y + 25);
@@ -65,25 +66,83 @@ class App
         g.lineWidth = 15;
         g.beginPath();
         g.fillStyle = "#404040";
-        g.moveTo(300, 1);
+        g.moveTo(350, 0);
         g.lineTo(300, 800);
         g.lineTo(500, 800);
-        g.lineTo(500, 1);
+        g.lineTo(450, 0);
+        g.closePath();
+        g.stroke();
+        g.fill();
+
+        // road stripes
+        for(let y = 0; y < 800; y += 100) {
+            g.beginPath();
+            g.fillStyle = "white";
+            g.moveTo(395, y);
+            g.lineTo(395, y + 50);
+            g.lineTo(405, y + 50);
+            g.lineTo(405, y);
+            g.closePath();
+            g.stroke();
+            g.fill();
+        }
+    }
+
+    tree(x, y)
+    {
+        let canvas = document.getElementById("canvasId")
+        let g = canvas.getContext("2d");
+        g.lineWidth = 15;
+        g.beginPath();
+        g.fillStyle = "green";
+        g.moveTo(50 + x, 0 + y);
+        g.lineTo(25 + x, 70 + y);
+        g.lineTo(75 + x, 70 + y);
+        g.closePath();
+        g.stroke();
+        g.fill();
+    
+        g.beginPath();
+        g.fillStyle = "brown";
+        g.moveTo(45 + x, 79 + y);
+        g.lineTo(45 + x, 100 + y);
+        g.lineTo(55 + x, 100 + y);
+        g.lineTo(55 + x, 79 + y);
         g.closePath();
         g.stroke();
         g.fill();
     }
+
+    text()
+    {
+        let canvas = document.getElementById("canvasId")
+        let g = canvas.getContext("2d");
+
+        g.fillStyle = "green"
+        g.font = "bold 50px Calibri";
+        g.lineWidth =1;
+        g.strokeStyle = 'white';
+        g.fillText("Merry Christmas!", 230, 100);
+        g.strokeText("Merry Christmas!", 230, 100);
+    }
 }
 let app = new App();
 app.card();
-app.house(10, 20);
+app.house(50, 20);
 app.house(40, 180);
 app.house(10, 330);
-app.house(40, 480);
+app.house(20, 480);
 app.house(10, 630);
 app.house(500, 20);
 app.house(550, 180);
 app.house(500, 330);
-app.house(550, 480);
-app.house(500, 630);
+app.house(540, 480);
+app.house(560, 630);
 app.road();
+app.tree(50, 100);
+app.tree(500, 180);
+app.tree(10, 560);
+app.tree(700, 400);
+app.tree(-10, 260);
+app.tree(700, 750);
+app.text();
