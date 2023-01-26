@@ -119,7 +119,7 @@ class App
         let g = canvas.getContext("2d");
 
         g.fillStyle = "green"
-        g.font = "bold 50px Calibri";
+        g.font = "bold 75px Calibri";
         g.lineWidth =1;
         g.strokeStyle = 'white';
         g.fillText("Merry Christmas!", 230, 100);
